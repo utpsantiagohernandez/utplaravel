@@ -4,7 +4,6 @@
 
 @section('content')
 
-
 <div class="card  p-5" style="min-height:280px; background-size: cover; background-image: url('img/bg-food.jpg');"> 
     <header class="text-center mt-5"> 
         <h1 class="text-white">Ordene tu despensa en línea ahora</h1> 
@@ -28,15 +27,7 @@
     </form>
 </div>
 
-
-
-
-
-
-
 <div class="container mt-5">
-
-
     <div class="row gy-3"> 
         <div class="col-lg-8"><!-- ============ COMPONENT BANNER 7 ============ -->
             <div class="card-banner overlay-gradient" style="min-height:230px; background-image: url('img/banner1.jpg');"> 
@@ -198,108 +189,25 @@
     <h3 class="my-3">Electrónica</h3>
     <div class="card card-body"> 
         <div class="row"> 
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
+            @foreach($products as $product)
+                <div class="col-lg-3 col-md-6"> 
+                    <div class="itemside mb-4"> 
+                        <div class="aside">
+                            <img src="img/2.jpg" class="img-sm img-thumbnail">
+                        </div> 
+                        <div class="info"> 
+                            <a href="{{ route('products.show', $product) }}" class="title">{{ $product->name }}</a> 
+                            <div class="price">$1280 </div> <!-- price.// --> 
+                            <a href="#" class="btn btn-primary-light btn-sm"> Agregar</a> 
+                        </div> 
                     </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div>
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
-                    </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div> 
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
-                    </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div> 
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
-                    </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div> 
-        </div>
-        <div class="row"> 
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
-                    </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div>
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
-                    </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div> 
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
-                    </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div> 
-            <div class="col-lg-3 col-md-6"> 
-                <div class="itemside mb-4"> 
-                    <div class="aside">
-                        <img src="img/1.jpg" class="img-sm img-thumbnail">
-                    </div> 
-                    <div class="info"> 
-                        <a href="#" class="title">The name of item here</a> 
-                        <div class="price">$1280 </div> <!-- price.// --> 
-                        <a href="#" class="btn btn-primary-light btn-sm"> Add to cart </a> 
-                    </div> 
-                </div> 
-            </div> 
+                </div>
+            @endforeach
         </div>
     </div>
-
 </div>
+
+
 
 
 @endsection

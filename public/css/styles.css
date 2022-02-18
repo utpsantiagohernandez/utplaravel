@@ -1,12 +1,72 @@
 body{
     font-family: 'Noto Sans', sans-serif;
-    background-color: #FAFBFC;
+    background-color: #fff;
+}
+
+.gallery-wrap .img-big-wrap {
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 560px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    background-color: #fff !important;
+}
+
+.gallery-wrap .thumbs-wrap {
+    text-align: center;
+}
+
+.gallery-wrap .thumbs-wrap .item-thumb {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.35rem;
+    margin: 3px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+@media (min-width: 993px){
+
+    .gallery-vertical {
+        display: flex;
+    }
+
+    .gallery-vertical .img-big-wrap {
+        order: 2;
+    }
+
+    .gallery-vertical .thumbs-wrap {
+        order: 1;
+        width: 60px;
+        margin-right: 1rem;
+    }
 }
 
 .btn-primary-light {
     color: #0d6efd;
     background-color: #dbe9ff;
     border-color: #dbe9ff;
+}
+
+.text-divider {
+    text-align: center;
+    display: flex;
+    font-size: .875rem;
+    color: #344563;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.text-divider:after, .text-divider:before {
+    content: "";
+    height: 1px;
+    background: #dee2e6;
+    flex: 1;
+    margin: 0 7px;
 }
 
 .itemside {
@@ -48,14 +108,6 @@ body{
     height: 72px;
 }
 
-.img-thumbnail {
-    padding: 0.25rem;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.35rem;
-    max-width: 100%;
-    height: auto;
-}
 
 .icontext {
     display: inline-flex;

@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="mb-4 card-title">Contacto</h1>
-                    <form method="POST" action="{{ route('contact') }}">
+                    <form method="POST" action="{{ route('messages.store') }}">
                         @csrf
                          <div class="mb-3">
                              <label for="nombre" class="form-label">Nombre</label>

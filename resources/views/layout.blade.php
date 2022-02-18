@@ -21,7 +21,7 @@
     <nav class="navbar navbar-expand-lg navbar-light"> 
         <div class="container"> 
             <a class="navbar-brand" href="#"> 
-                <img src="img/logo.svg" height="40" class="logo"> 
+                <img src="/img/logo.svg" height="40" class="logo"> 
             </a> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_main" aria-expanded="false" aria-label="Toggle navigation"> 
                 <span class="navbar-toggler-icon"></span> 
@@ -30,9 +30,7 @@
                 <ul class="navbar-nav me-auto"> 
                     <li class="nav-item"> <a class="nav-link {{ request()->routeIS('home') ? 'active' : '' }}" href="{{ route('home') }}"> Principal </a> </li> 
                     <li class="nav-item dropdown"> 
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> 
-                            Productos 
-                        </a> 
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Productos</a> 
                         <ul class="dropdown-menu"> 
                             <li> <a class="dropdown-item" href="#"> Congelados </a> </li> 
                             <li> <a class="dropdown-item" href="#"> Refrigerador </a> </li> 
@@ -43,19 +41,77 @@
                     <li class="nav-item"> <a class="nav-link" href="#"> Acerca de </a> </li> 
                     <li class="nav-item"> <a class="nav-link {{ request()->routeIS('contact') ? 'active' : '' }}" href="{{ route('contact') }}"> Contacto </a> </li> 
                 </ul> 
-                <a href="#" class="ms-md-2 btn btn-outline-dark"> 
-                   <i class="fa-solid fa-user me-1"></i>Registrate
+                <a href="{{ route('signin') }}" class="ms-md-2 btn btn-outline-dark {{ request()->routeIS('signin') ? 'active' : '' }}"> 
+                   <i class="fa-solid fa-user me-1"></i>Tu cuenta
                 </a> 
                 <a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="ms-md-2 btn btn-primary"> 
-                   <i class="fa-solid fa-cart-shopping"></i> Mi despensa (2) 
+                   <i class="fa-solid fa-cart-shopping"></i> Mi despensa (3) 
                 </a> 
             </div> <!-- navbar-collapse end.// --> 
         </div> <!-- container end.// --> 
     </nav>
    
     @yield('content')
+
+    <aside class="offcanvas offcanvas-end " tabindex="-1" id="offcanvas_cart" aria-modal="true" role="dialog" style="visibility: visible;"> 
+        <div class="offcanvas-header border-bottom"> 
+            <h5 class="offcanvas-title"> Productos (3) </h5> 
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> 
+        </div> 
+        <div class="offcanvas-body"> 
+            <div class="itemside mb-4"> 
+                <div class="aside"> 
+                    <img src="/img/14.jpg" class="border img-sm rounded"> 
+                </div> 
+                <div class="info"> 
+                    <a href="#" class="btn btn-outline-danger float-end">
+                        <i class="fas fa-trash-alt"></i>
+                    </a> 
+                    <p> Leather Wallet for Men</p> 
+                    <span class="text-muted">1 x $200.95 </span> <br> 
+                    <strong class="price"> $400.90 </strong> 
+                </div> 
+            </div> 
+            <div class="itemside mb-4"> 
+                <div class="aside"> 
+                    <img src="/img/2.jpg" class="border img-sm rounded"> 
+                </div> 
+                <div class="info"> 
+                    <a href="#" class="btn btn-outline-danger float-end">
+                        <i class="fas fa-trash-alt"></i>
+                    </a> 
+                    <p> Canon EOS 1400 Black </p> 
+                    <span class="text-muted">2 x $169.95 </span> <br> 
+                    <strong class="price"> $339.90 </strong> 
+                </div> 
+            </div> 
+            <div class="itemside mb-4"> 
+                <div class="aside"> 
+                    <img src="/img/11.jpg" class="border img-sm rounded"> 
+                </div> 
+                <div class="info"> 
+                    <a href="#" class="btn btn-outline-danger float-end">
+                        <i class="fas fa-trash-alt"></i>
+                    </a> 
+                    <p> Winter Jacket for men and lady </p> 
+                    <span class="text-muted">2 x $169.95 </span> <br> 
+                    <strong class="price"> $339.90 </strong> 
+                </div> 
+            </div> 
+            <hr> 
+            <p class="mb-3 text-center fs-5"> Subtotal: <strong>$1,593.00</strong> </p> 
+            <div class="mb-3"> 
+                <a href="#" class="btn btn-lg btn-success w-100"> Hacer despensa </a> 
+            </div> 
+            <p class="mb-3 text-center"> 
+                <img src="/img/payments.png" height="22"> 
+            </p> 
+        </div> <!-- offcanvas-body -->
+    </aside>
+
+
     
-    <footer class="section-footer bg-primary footer-dark mt-5"> 
+    <footer class="section-footer bg-primary footer-dark "> 
         <div class="container"> 
             <section class="footer-main py-5"> 
                 <div class="row"> 

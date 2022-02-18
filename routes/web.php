@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,21 +11,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
   return view('home');
 })->name("home");
+*/
+
+Route::get('/','App\Http\Controllers\ProductController@index')->name("home");
+Route::get('productos/{id}','App\Http\Controllers\ProductController@show')->name("products.show");
+
+Route::view('/contacto','contact')->name('contact');
+Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('messages.store');
+
+
 
 Route::get('/perfil', function () {
     return view('profile');
 })->name("profile");
 
-/*
-Route::get('/contacto', function () {
-  return view('contact');
-})->name("contact");
-*/
-Route::view('/contacto','contact')->name('contact');
-Route::post('contacto', 'App\Http\Controllers\MessagesController@store');
+
+Route::get('/registro', function () {
+  return view('signin');
+})->name("signin");
+
+
+
+
 
 //Route::get('/contacto', 'ContactController')->name('contact');
