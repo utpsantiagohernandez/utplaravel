@@ -101,7 +101,7 @@
             <hr> 
             <p class="mb-3 text-center fs-5"> Subtotal: <strong>$1,593.00</strong> </p> 
             <div class="mb-3"> 
-                <a href="#" class="btn btn-lg btn-success w-100"> Hacer despensa </a> 
+                <a href="{{route('products.index')}}" class="btn btn-lg btn-success w-100"> Hacer despensa </a> 
             </div> 
             <p class="mb-3 text-center"> 
                 <img src="/img/payments.png" height="22"> 

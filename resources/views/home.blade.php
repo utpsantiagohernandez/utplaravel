@@ -191,16 +191,18 @@
         <div class="row"> 
             @foreach($products as $product)
                 <div class="col-lg-3 col-md-6"> 
-                    <div class="itemside mb-4"> 
-                        <div class="aside">
-                            <img src="img/2.jpg" class="img-sm img-thumbnail">
+                    <a href="{{ route('products.show', $product) }}" class="title">
+                        <div class="itemside mb-4"> 
+                            <div class="aside">
+                                <img src="img/2.jpg" class="img-sm img-thumbnail">
+                            </div> 
+                            <div class="info"> 
+                                {{ $product->name }}
+                                <div class="price">$1280</div> <!-- price.// --> 
+                                <a href="#" class="btn btn-primary-light btn-sm"> Agregar</a> 
+                            </div> 
                         </div> 
-                        <div class="info"> 
-                            <a href="{{ route('products.show', $product) }}" class="title">{{ $product->name }}</a> 
-                            <div class="price">$1280 </div> <!-- price.// --> 
-                            <a href="#" class="btn btn-primary-light btn-sm"> Agregar</a> 
-                        </div> 
-                    </div> 
+                    </a> 
                 </div>
             @endforeach
         </div>

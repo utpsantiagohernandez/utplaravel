@@ -25,9 +25,9 @@ Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('m
 
 
 
-Route::get('/perfil', function () {
-    return view('profile');
-})->name("profile");
+Route::get('/pedido', function () {
+    return view('products.index');
+})->name("products.index");
 
 
 Route::get('/registro', function () {
