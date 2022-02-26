@@ -29,10 +29,18 @@ Route::get('/pedido', function () {
     return view('products.index');
 })->name("products.index");
 
+Route::get('/pedidoCheckIn', function () {
+  return view('products.store');
+})->name("products.store");
+
 
 Route::get('/registro', function () {
   return view('signin');
 })->name("signin");
+
+Route::get('/clientes', function () {
+  return view('clients.index');
+})->name("clients");
 
 
 

@@ -27,8 +27,8 @@
     </form>
 </div>
 
-<div class="container mt-5">
-    <div class="row gy-3"> 
+<div class="container">
+    <div class="row gy-3 my-3"> 
         <div class="col-lg-8"><!-- ============ COMPONENT BANNER 7 ============ -->
             <div class="card-banner overlay-gradient" style="min-height:230px; background-image: url('img/banner1.jpg');"> 
                 <div class="card-img-overlay"> 
@@ -83,7 +83,7 @@
     </div>
 
     <h3 class="my-3">Abarrotes</h3>
-    <div class="card card-body"> 
+    <div class="card card-body my-3"> 
         <div class="row"> 
             <div class="col-lg-3 col-md-6"> 
                 <div class="itemside mb-4"> 
@@ -187,21 +187,21 @@
     </div>
 
     <h3 class="my-3">Electrónica</h3>
-    <div class="card card-body"> 
+    <div class="card card-body my-3"> 
         <div class="row"> 
             @foreach($products as $product)
                 <div class="col-lg-3 col-md-6"> 
-                    <a href="{{ route('products.show', $product) }}" class="title">
-                        <div class="itemside mb-4"> 
-                            <div class="aside">
-                                <img src="img/2.jpg" class="img-sm img-thumbnail">
-                            </div> 
-                            <div class="info"> 
-                                {{ $product->name }}
-                                <div class="price">$1280</div> <!-- price.// --> 
-                                <a href="#" class="btn btn-primary-light btn-sm"> Agregar</a> 
-                            </div> 
+                    <a href="{{ route('products.show', $product) }}" class="itemside align-items-center my-2">
+                        <div class="aside">
+                            <img src="img/2.jpg" class="img-sm img-thumbnail" />
                         </div> 
+
+                        <div class="info"> 
+                            <p class="title"> {{ $product->name }}</p> 
+                            <div class="price">$1280</div>
+                            <button type="button" class="btn btn-primary-light btn-sm"> Agregar</button> 
+                        </div>
+                        
                     </a> 
                 </div>
             @endforeach

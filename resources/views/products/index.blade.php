@@ -5,12 +5,10 @@
 @section('content')
 
 <div class="container my-4">
-
-    <div class="row my-4">
-        <div class="col-md-9">
-            <!-- ============== COMPONENT 1 =============== -->
+    <div class="row">
+        <div class="col-sm-9">
             <article class="card">
-                <div class="card-body">
+                <div class="card-body mb-3">
                     <h5 class="card-title">Tu información</h5>
                     <div class="row">
                         <div class="col-6 mb-3">
@@ -92,14 +90,164 @@
                             <input type="text" class="form-control" placeholder=""> 
                         </div> <!-- col end.// -->
                     </div> <!-- row.// --> 
-                    
                     <button class="btn btn-primary">Confirmar</button> <button class="btn btn-light">Cambiar</button>
+                </div>
+                <div class="card-body mb-3"> 
+                    <hr class="my-4">
+                    <h5 class="card-title">Tus productos </h5>
+                    <div class="row gy-3 align-items-center"> 
+                        <div class="col-md-6"> 
+                            <a href="#" class="itemside align-items-center"> 
+                                <div class="aside"> 
+                                    <img src="/img/10.jpg" height="72" width="72" class="img-thumbnail img-sm"> 
+                                </div> 
+                                <div class="info"> 
+                                    <p class="title">T-shirts with multiple colors, for men and lady </p> 
+                                    <span class="text-muted">Clothes</span> 
+                                </div> 
+                            </a> 
+                        </div> <!-- col.// --> 
+                        <div class="col-auto"> 
+                            <div class="input-group input-spinner"> 
+                                <button class="btn btn-sm btn-warning" type="button"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
+                                        <path d="M19 13H5v-2h14v2z"></path> 
+                                    </svg> 
+                                </button> 
+                                <input type="text" class="form-control" value="1"> 
+                                <button class="btn btn-sm btn-warning" type="button"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
+                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path> 
+                                    </svg> 
+                                </button> 
+                            </div> <!-- input-group.// --> 
+                        </div> <!-- col.// --> 
+                        <div class="col"> 
+                            <strong class="price"> $180.00 </strong> 
+                        </div> 
+                        <div class="col text-end"> 
+                            <a href="#" class="btn btn-icon btn-outline-danger"> 
+                                <i class="fa fa-trash"></i> 
+                            </a> 
+                        </div> 
+                    </div> 
+                </div> 
+                <div class="card-body mb-3"> 
+                    <div class="row gy-3 align-items-center"> 
+                        <div class="col-md-6"> 
+                            <a href="#" class="itemside align-items-center"> 
+                                <div class="aside"> 
+                                    <img src="/img/12.jpg" height="72" width="72" class="img-thumbnail img-sm"> 
+                                </div> 
+                                <div class="info"> 
+                                    <p class="title"> Backpack jeans for travel for men and lady </p> 
+                                    <span class="text-muted"> Accessories </span> 
+                                </div> 
+                            </a> 
+                        </div> <!-- col.// --> 
+                        <div class="col-auto"> 
+                            <div class="input-group input-spinner"> 
+                                <button class="btn btn-sm btn-warning" type="button"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
+                                        <path d="M19 13H5v-2h14v2z"></path> 
+                                    </svg> 
+                                </button> 
+                                <input type="text" class="form-control" value="1"> 
+                                <button class="btn btn-sm btn-warning" type="button"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
+                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path> 
+                                    </svg> 
+                                </button> 
+                            </div> <!-- input-group.// --> 
+                        </div> <!-- col.// --> 
+                        <div class="col"> 
+                            <strong class="price"> $180.00 </strong> 
+                        </div> 
+                        <div class="col text-end"> 
+                            <a href="#" class="btn btn-icon btn-outline-danger"> 
+                                <i class="fa fa-trash"></i> 
+                            </a> 
+                        </div> 
+                    </div> 
+                </div> 
+                <div class="card-body mb-3"> 
+                    <div class="row gy-3 align-items-center"> 
+                        <div class="col-md-6"> 
+                            <a href="#" class="itemside align-items-center"> 
+                                <div class="aside"> 
+                                    <img src="/img/8.jpg" height="72" width="72" class="img-thumbnail img-sm"> 
+                                </div> 
+                                <div class="info"> 
+                                    <p class="title">Jeans bag for hiking blue color </p> 
+                                    <span class="text-muted">Wears</span> 
+                                </div> 
+                            </a> 
+                        </div> <!-- col.// --> 
+                        <div class="col-auto"> 
+                            <div class="input-group input-spinner"> 
+                                <button class="btn btn-sm btn-warning" type="button"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
+                                        <path d="M19 13H5v-2h14v2z"></path> 
+                                    </svg> 
+                                </button> 
+                                <input type="text" class="form-control" value="2"> 
+                                <button class="btn btn-sm btn-warning" type="button"> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
+                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path> 
+                                    </svg> 
+                                </button> 
+                            </div> <!-- input-group.// --> 
+                        </div> <!-- col.// --> 
+                        <div class="col"> 
+                            <strong class="price"> $180.00 </strong> 
+                        </div> 
+                        <div class="col text-end"> 
+                            <a href="#" class="btn btn-icon btn-outline-danger"> 
+                                <i class="fa fa-trash"></i> 
+                            </a> 
+                        </div> 
+                    </div> <!-- row.// --> 
+                </div> 
+                <div class="card-body mb-3">
+                    <hr class="my-4">
+                    <h5 class="card-title">Método de pago</h5>
+                    <div class="accordion" id="accordion_payment">
+                        <article class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne"> 
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> 
+                                    Transferencia bancaria
+                                </button> 
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion_payment">
+                                <div class="accordion-body">
+                                    <p> <strong>BANCO:</strong> BBVA, <strong>NÚMERO DE CUENTA:</strong> 12345678912346 <br> <strong>REFERENCIA:</strong> 12345, <strong>CONCEPTO:</strong> Pedido en línea</p>
+                                </div>
+                            </div>
+                        </article> <!-- accardion-item end.// -->
+                        <article class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo"> 
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> 
+                                    Paypal
+                                </button> 
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion_payment">
+                                <div class="accordion-body">
+                                    <p class="text-center text-muted"> 
+                                        Conecta tu cuenta de PayPal y utilízala para pagar tus facturas.
+                                        <br> Será redirigido a PayPal para agregar su información de facturación. <br><br> 
+                                        <a href="#"> 
+                                            <img src="/img/btn-paypal.png" height="32">
+                                        </a> 
+                                    </p>
+                                </div>
+                            </div>
+                        </article> <!-- accardion-item end.// -->
+                    </div> <!-- accardion-item end.// -->
                 </div> <!-- card-body end.// -->
-            </article> <!-- card end.// -->
-            <!-- ============== COMPONENT 1 .// =============== -->
+            </article> 
         </div>
-        <aside class="col-md-3"> 
-            <div class="card"> 
+        <aside class="col-sm-3 navbar sticky-top"> 
+            <div class="card h-100"> 
                 <div class="card-body"> 
                     <dl class="dlist-align"> 
                         <dt>Subtotal:</dt> <dd class="text-end"> $1403.97</dd> 
@@ -114,177 +262,14 @@
                         <dt>Total:</dt> <dd class="text-end text-dark h4 fw-bold"> $1357.97 </dd> 
                     </dl> 
                     <hr> 
-                    <a href="#" class="btn btn-primary mb-2 w-100">Hacer pedido</a> 
+                    <a href="{{ route('products.store') }}" class="btn btn-primary mb-2 w-100">Hacer pedido</a> 
                     <p class="text-center mt-3"> 
                         <img src="/img/payments.png" height="24"> 
                     </p> 
                 </div> <!-- card-body.// --> 
             </div> <!-- card.// --> 
-        </aside> <!-- col.// -->
+        </aside>
     </div>
-    <div class="row my-4"> 
-        <div class="col-md-9"> 
-            <article class="card card-body mb-3"> 
-                <div class="row gy-3 align-items-center"> 
-                    <div class="col-md-6"> 
-                        <a href="#" class="itemside align-items-center"> 
-                            <div class="aside"> 
-                                <img src="/img/10.jpg" height="72" width="72" class="img-thumbnail img-sm"> 
-                            </div> 
-                            <div class="info"> 
-                                <p class="title">T-shirts with multiple colors, for men and lady </p> 
-                                <span class="text-muted">Clothes</span> 
-                            </div> 
-                        </a> 
-                    </div> <!-- col.// --> 
-                    <div class="col-auto"> 
-                        <div class="input-group input-spinner"> 
-                            <button class="btn btn-sm btn-warning" type="button"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
-                                    <path d="M19 13H5v-2h14v2z"></path> 
-                                </svg> 
-                            </button> 
-                            <input type="text" class="form-control" value="1"> 
-                            <button class="btn btn-sm btn-warning" type="button"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path> 
-                                </svg> 
-                            </button> 
-                        </div> <!-- input-group.// --> 
-                    </div> <!-- col.// --> 
-                    <div class="col"> 
-                        <strong class="price"> $180.00 </strong> 
-                    </div> 
-                    <div class="col text-end"> 
-                        <a href="#" class="btn btn-icon btn-outline-danger"> 
-                            <i class="fa fa-trash"></i> 
-                        </a> 
-                    </div> 
-                </div> <!-- row.// --> 
-            </article> <!-- card .// --> 
-            <article class="card card-body mb-3"> 
-                <div class="row gy-3 align-items-center"> 
-                    <div class="col-md-6"> 
-                        <a href="#" class="itemside align-items-center"> 
-                            <div class="aside"> 
-                                <img src="/img/12.jpg" height="72" width="72" class="img-thumbnail img-sm"> 
-                            </div> 
-                            <div class="info"> 
-                                <p class="title"> Backpack jeans for travel for men and lady </p> 
-                                <span class="text-muted"> Accessories </span> 
-                            </div> 
-                        </a> 
-                    </div> <!-- col.// --> 
-                    <div class="col-auto"> 
-                        <div class="input-group input-spinner"> 
-                            <button class="btn btn-sm btn-warning" type="button"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
-                                    <path d="M19 13H5v-2h14v2z"></path> 
-                                </svg> 
-                            </button> 
-                            <input type="text" class="form-control" value="1"> 
-                            <button class="btn btn-sm btn-warning" type="button"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path> 
-                                </svg> 
-                            </button> 
-                        </div> <!-- input-group.// --> 
-                    </div> <!-- col.// --> 
-                    <div class="col"> 
-                        <strong class="price"> $180.00 </strong> 
-                    </div> 
-                    <div class="col text-end"> 
-                        <a href="#" class="btn btn-icon btn-outline-danger"> 
-                            <i class="fa fa-trash"></i> 
-                        </a> 
-                    </div> 
-                </div> <!-- row.// --> 
-            </article> <!-- card .// --> 
-            <article class="card card-body mb-3"> 
-                <div class="row gy-3 align-items-center"> 
-                    <div class="col-md-6"> 
-                        <a href="#" class="itemside align-items-center"> 
-                            <div class="aside"> 
-                                <img src="/img/8.jpg" height="72" width="72" class="img-thumbnail img-sm"> 
-                            </div> 
-                            <div class="info"> 
-                                <p class="title">Jeans bag for hiking blue color </p> 
-                                <span class="text-muted">Wears</span> 
-                            </div> 
-                        </a> 
-                    </div> <!-- col.// --> 
-                    <div class="col-auto"> 
-                        <div class="input-group input-spinner"> 
-                            <button class="btn btn-sm btn-warning" type="button"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
-                                    <path d="M19 13H5v-2h14v2z"></path> 
-                                </svg> 
-                            </button> 
-                            <input type="text" class="form-control" value="2"> 
-                            <button class="btn btn-sm btn-warning" type="button"> 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 24 24"> 
-                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path> 
-                                </svg> 
-                            </button> 
-                        </div> <!-- input-group.// --> 
-                    </div> <!-- col.// --> 
-                    <div class="col"> 
-                        <strong class="price"> $180.00 </strong> 
-                    </div> 
-                    <div class="col text-end"> 
-                        <a href="#" class="btn btn-icon btn-outline-danger"> 
-                            <i class="fa fa-trash"></i> 
-                        </a> 
-                    </div> 
-                </div> <!-- row.// --> 
-            </article> <!-- card .// --> 
-        </div> <!-- col.// --> 
-    </div>
-    <div class="row my-4">
-
-        <div class="col-md-9">
-            <!-- ============== COMPONENT PAY =============== -->
-            <article class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Método de pago</h5>
-                    <div class="accordion" id="accordion_payment">
-                        <article class="accordion-item">
-                            <h2 class="accordion-header"> 
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"> 
-                                    Transferencia bancaria
-                                </button> 
-                            </h2>
-                            <div id="collapseThree" data-bs-parent="#accordion_payment" class="accordion-collapse collapse" style="">
-                                <div class="accordion-body">
-                                    <p> BBVA, número de cuenta: 12345678912346 <br> REFERENCIA: 12345, CONCEPTO: Pedido en línea</p>
-                                </div>
-                            </div>
-                        </article> <!-- accardion-item end.// -->
-                        <article class="accordion-item">
-                            <h6 class="accordion-header"> 
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"> 
-                                    Paypal
-                                </button> 
-                            </h6>
-                            <div id="collapseOne" data-bs-parent="#accordion_payment" class="accordion-collapse collapse"
-                                style="">
-                                <div class="accordion-body">
-                                    <p class="text-center text-muted"> 
-                                        Conecta tu cuenta de PayPal y utilízala para pagar tus facturas.
-                                        <br> Será redirigido a PayPal para agregar su información de facturación. <br><br> 
-                                        <a href="#"> <img src="bootstrap5-ecommerce/images/misc/btn-paypal.png" height="32"></a> 
-                                    </p>
-                                </div>
-                            </div>
-                        </article> <!-- accardion-item end.// -->
-                    </div> <!-- accardion-item end.// -->
-                </div> <!-- card-body end.// -->
-            </article> <!-- card end.// -->
-            <!-- ============== COMPONENT PAY .// =============== -->
-        </div>
-
-    </div>
-
 </div>
 
 @endsection
