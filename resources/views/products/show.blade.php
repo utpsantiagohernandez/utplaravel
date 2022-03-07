@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title','Productos | '.  $product->id)
+@section('title','Productos | '.  $product->name)
 
 @section('content')
 

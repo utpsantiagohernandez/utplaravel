@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -20,19 +21,16 @@ Route::get('/', function () {
 Route::get('/','App\Http\Controllers\ProductController@index')->name("home");
 Route::get('productos/{id}','App\Http\Controllers\ProductController@show')->name("products.show");
 
-Route::view('/contacto','contact')->name('contact');
-Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('messages.store');
-
-
-
 Route::get('/pedido', function () {
-    return view('products.index');
+  return view('products.index');
 })->name("products.index");
 
 Route::get('/pedidoCheckIn', function () {
   return view('products.store');
 })->name("products.store");
 
+Route::view('/contacto','contact')->name('contact');
+Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('messages.store');
 
 Route::get('/registro', function () {
   return view('signin');
@@ -43,7 +41,8 @@ Route::get('/clientes', function () {
 })->name("clients");
 
 
-
-
-
 //Route::get('/contacto', 'ContactController')->name('contact');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
