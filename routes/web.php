@@ -32,9 +32,11 @@ Route::get('/pedidoCheckIn', function () {
 Route::view('/contacto','contact')->name('contact');
 Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('messages.store');
 
+/*
 Route::get('/registro', function () {
   return view('signin');
 })->name("signin");
+*/
 
 Route::get('/clientes', function () {
   return view('clients.index');
@@ -45,4 +47,4 @@ Route::get('/clientes', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

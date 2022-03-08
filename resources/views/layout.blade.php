@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
     <title>@yield('title')</title>
     <!-- Bootstrap -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" type="text/css" />
@@ -41,15 +46,46 @@
                     <li class="nav-item"> <a class="nav-link" href="#"> Acerca de </a> </li> 
                     <li class="nav-item"> <a class="nav-link {{ request()->routeIS('contact') ? 'active' : '' }}" href="{{ route('contact') }}"> Contacto </a> </li> 
                 </ul> 
-                <a href="{{ route('signin') }}" class="ms-md-2 btn btn-outline-dark {{ request()->routeIS('signin') ? 'active' : '' }}"> 
-                   <i class="fa-solid fa-user me-1"></i>Tu cuenta
-                </a> 
+                @auth
+                    <ul class="navbar-nav"> 
+                        <li class="nav-item dropdown"> 
+                            <a class=" dropdown-toggle ms-md-2 btn btn-outline-dark {{ request()->routeIS('home') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+                                <i class="fa-solid fa-user me-1"></i><span>{{auth()->user()->name}}</span> 
+                            </a> 
+                            <ul class="dropdown-menu dropdown-menu-end"> 
+                                <li> 
+                                    <a class="dropdown-item" href="{{ route('clients') }}">
+                                        <i class="fa-solid fa-user-gear me-1"></i>Configuración
+                                    </a> 
+                                </li> 
+                                <li> 
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa-solid fa-receipt me-1"></i>Tus pedidos
+                                    </a> 
+                                </li> 
+                                <li> <hr class="dropdown-divider"> </li> 
+                                <li> 
+                                    <a href="#" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        Cerrar Sesión
+                                    </a>
+                                </li> 
+                            </ul> 
+                        </li> 
+                    </ul>
+                @else
+                    <a href="{{ route('login') }}" class="ms-md-2 btn btn-outline-dark {{ request()->routeIS('login') ? 'active' : '' }}"> 
+                        <i class="fa-solid fa-user me-1"></i>Tu cuenta
+                    </a> 
+                @endauth
                 <a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="ms-md-2 btn btn-primary"> 
                    <i class="fa-solid fa-cart-shopping"></i> Mi despensa (3) 
                 </a> 
             </div> <!-- navbar-collapse end.// --> 
         </div> <!-- container end.// --> 
     </nav>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
    
     @yield('content')
 
@@ -171,10 +207,10 @@
             <section class="footer-bottom d-flex justify-content-between"> 
                 <p class="text-white-50 mb-0"> © 2022 Despensa Digital. Todos los derechos reservados. </p> 
                 <div> 
-                    <i class="fab fa-lg fa-cc-visa"></i> 
-                    <i class="fab fa-lg fa-cc-amex"></i> 
-                    <i class="fab fa-lg fa-cc-mastercard"></i> 
-                    <i class="fab fa-lg fa-cc-paypal"></i> 
+                    <i class="fa-brands fa-lg fa-cc-visa"></i> 
+                    <i class="fa-brands fa-lg fa-cc-amex"></i> 
+                    <i class="fa-brands fa-lg fa-cc-mastercard"></i> 
+                    <i class="fa-brands fa-lg fa-cc-paypal"></i> 
                 </div> 
             </section> 
         </div> <!-- container end.// --> 
