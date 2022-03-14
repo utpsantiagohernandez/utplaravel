@@ -433,6 +433,7 @@ a.itemside {
 
 a.itemside:hover .title {
     color: #0d6efd;
+    text-decoration: underline;
 }
 
 a.itemside:hover .img-thumbnail {

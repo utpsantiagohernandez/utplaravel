@@ -8,16 +8,110 @@
     <div class="row">
         <aside class="col-sm-3">
            <div class="card p-3 h-100">
-                <nav class="nav flex-column nav-pills"> 
-                    <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true" href="#v-pills-home">Mi cuenta</a> 
-                    <a class="nav-link" d="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders" type="button" role="tab" aria-controls="v-pills-orders" aria-selected="false"   href="#v-pills-orders">Mis pedidos</a> 
-                    <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="#v-pills-profile">Mi perfil</a>                    
+                <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"> 
+                    <a class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" href="#v-pills-profile">Mi perfil</a>  
+                    <a class="nav-link" id="v-pills-account-tab" data-bs-toggle="pill" data-bs-target="#v-pills-account" type="button" role="tab" aria-controls="v-pills-account" aria-selected="true" href="#v-pills-account">Mi cuenta</a> 
+                    <a class="nav-link" id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders" type="button" role="tab" aria-controls="v-pills-orders" aria-selected="false"   href="#v-pills-orders">Mis pedidos</a> 
                 </nav>
             </div> 
         </aside>
         <div class="col-sm-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    <article class="card">
+                        <div class="card-body">
+
+                            @if (session('saveOK'))
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Éxito!</strong> {{ session('saveOK') }} 
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                         
+                            @if($user->clientes->id ?? '')
+                                <form method="POST" action="{{ route('clients.update',$user->clientes->id) }}">
+                                @method('PATCH')
+                            @else
+                                <form method="POST" action="{{ route('clients.store') }}">
+                            @endif
+
+                                @csrf
+                                <div class="row gx-3">
+                                    <input type="hidden" class="form-control" name="id_user" value="{{ $user->id }}" > 
+                                    <div class="col-12 mb-3"> 
+                                        <label class="form-label">Nombres</label> 
+                                        <input type="text" class="form-control  @error('name') is-invalid @enderror"  name="name" value="{{ old('name', $user->clientes->name ?? '') }}" > 
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div> 
+                                    <div class="col-12 mb-3"> 
+                                        <label class="form-label">Apellidos</label> 
+                                        <input type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname', $user->clientes->lastname ?? '') }}" > 
+                                        @error('lastname')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div> 
+                                    <div  class="col-12 mb-3">
+                                        <label class="form-label">Correo electrónico</label> 
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" > 
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                         @enderror
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 mb-3"> 
+                                        <label class="form-label">Teléfono</label> 
+                                        <input type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone"  value="{{ old('phone', $user->clientes->phone ?? '')  }}"> 
+                                        @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-lg-6 col-6 mb-3"> 
+                                        <label class="form-label">Cumpleaños</label> 
+                                        <input type="date" class="form-control @error('dateofbirth') is-invalid @enderror" name="dateofbirth" value="{{ old('dateofbirth', $user->clientes->dateofbirth ?? '')  }}"> 
+                                        @error('dateofbirth')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div> 
+                                </div>
+                                <br> 
+                                <button type="submit" class="btn btn-warning btn-lg">Guardar cambios</button>
+                            </form>
+                            <hr class="my-4">
+                            <div class="row" style="max-width:920px">
+                                <div class="col-md">
+                                    <article class="box mb-3 bg-light"> 
+                                        <a class="btn float-end btn-outline-primary btn-sm" href="#">Cambiar</a>
+                                        <p class="title mb-0">Contraseña</p> 
+                                        <small class="text-muted d-block" style="width:70%">
+                                            Puede cambiar su contraseña haciendo clic o presionar aquí
+                                        </small>
+                                    </article>
+                                </div> <!-- col.// -->
+                                <div class="col-md">
+                                    <article class="box mb-3 bg-light"> 
+                                        <a class="btn float-end btn-outline-danger btn-sm" href="#">Desactivar</a>
+                                        <p class="title mb-0">Desactivar cuenta</p> 
+                                        <small class="text-muted d-block" style="width:70%">
+                                            Tu cuenta la desactivas, pero no te preocuopes no se elimina.
+                                        </small>
+                                    </article>
+                                </div> <!-- col.// -->
+                            </div> <!-- row.// -->
+                        </div> <!-- card-body .// -->
+                    </article>
+                </div>
+                <div class="tab-pane fade" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab">
                     <article class="card">
                         <div class="card-body">
                             <div class="itemside align-items-center">
@@ -25,12 +119,12 @@
                                     <img src="/img/avatar.jpg" class="icon-md img-avatar"> 
                                 </div>
                                 <div class="info">
-                                    <h6 class="title">Mr. Jackson Mike</h6>
+                                    <h6 class="title">{{ $user->name }}</h6>
                                     <p>
-                                        <span class="fw-bold">Correo:</span> myusername@gmail.com 
+                                        <span class="fw-bold">Correo:</span> {{ $user->email }}
                                         <i class="dot"></i> 
-                                        <span class="fw-bold">Teléfono:</span> 99991395052 
-                                        <a href="#" class="px-2"><i class="fas fa-pen"></i></a> 
+                                        <span class="fw-bold">Teléfono:</span> {{ $user->clientes->phone ?? ' ' }}
+                                        <a class="px-2" href="{{ route('clients.show', auth()->user()->id) }}" ><i class="fas fa-pen"></i></a>
                                     </p>
                                 </div>
                             </div>
@@ -50,7 +144,7 @@
                                         <b class="mx-1 text-muted">
                                             <i class="fas fa-map-marker-alt"></i>
                                         </b> 
-                                        Calle 66 S/N Colonia las Tres cruces 
+                                        Calle 66 S/N Colonia las Tres cruces, Maxcanú, Yucatán, México
                                     </article>
                                 </div> <!-- col.// -->
                             </div> <!-- row.// --> 
@@ -79,20 +173,20 @@
                                     <p class="m-0"> 
                                         Alex Donald <br> Teléfono: 109-295-9131 <br> Correo: info@mywebsite.com 
                                     </p>
-                                </div> <!-- col.// -->
+                                </div> 
                                 <div class="col-md-4 border-start">
                                     <p class="mb-0 text-muted">Dirección de envío</p>
                                     <p class="m-0"> 
                                         United States <br> 600 Markley Street, Suite 170777 Port Reading, NJ 07064 
                                     </p>
-                                </div> <!-- col.// -->
+                                </div> 
                                 <div class="col-md-4 border-start">
                                     <p class="mb-0 text-muted">Pago</p>
                                     <p class="m-0"> 
                                         <span class="text-success"> Visa **** 0932 </span> <br> Tarifa de envío: $12 <br> Total: $150.90 
                                     </p>
-                                </div> <!-- col.// -->
-                            </div> <!-- row.// -->
+                                </div> 
+                            </div> 
                             <hr>
                             <ul class="row">
                                 <li class="col-lg-4 col-md-6">
@@ -184,62 +278,9 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div> <!-- card-body .// -->
+                        </div> 
                     </article>
                 </div>                
-                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                    <article class="card">
-                        <div class="card-body">
-                            <form>
-                                <div class="row gx-3">
-                                    <div class="col-12 mb-3"> 
-                                        <label class="form-label">Nombres</label> 
-                                        <input type="text" class="form-control" value="" > 
-                                    </div> <!-- col .// -->
-                                    <div class="col-12 mb-3"> 
-                                        <label class="form-label">Apellidos</label> 
-                                        <input type="text" class="form-control" value="" > 
-                                    </div> <!-- col .// -->
-                                    <div  class="col-12 mb-3">
-                                        <label class="form-label">Correo electrónico</label> 
-                                        <input type="email" class="form-control" value="" > 
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 mb-3"> 
-                                        <label class="form-label">Teléfono</label> 
-                                        <input type="tel" class="form-control" value=""> 
-                                    </div><!-- col .// -->
-                                    <div class="col-lg-6 col-6 mb-3"> 
-                                        <label class="form-label">Cumpleaños</label> 
-                                        <input type="date" class="form-control"> 
-                                    </div> <!-- col .// -->
-                                </div> <!-- row.// -->
-                                <br> 
-                                <button type="submit" class="btn btn-warning btn-lg">Guardar cambios</button>
-                            </form>
-                            <hr class="my-4">
-                            <div class="row" style="max-width:920px">
-                                <div class="col-md">
-                                    <article class="box mb-3 bg-light"> 
-                                        <a class="btn float-end btn-outline-primary btn-sm" href="#">Cambiar</a>
-                                        <p class="title mb-0">Contraseña</p> 
-                                        <small class="text-muted d-block" style="width:70%">
-                                            Puede cambiar su contraseña haciendo clic o presionar aquí
-                                        </small>
-                                    </article>
-                                </div> <!-- col.// -->
-                                <div class="col-md">
-                                    <article class="box mb-3 bg-light"> 
-                                        <a class="btn float-end btn-outline-danger btn-sm" href="#">Desactivar</a>
-                                        <p class="title mb-0">Desactivar cuenta</p> 
-                                        <small class="text-muted d-block" style="width:70%">
-                                            Tu cuenta la desactivas, pero no te preocuopes no se elimina.
-                                        </small>
-                                    </article>
-                                </div> <!-- col.// -->
-                            </div> <!-- row.// -->
-                        </div> <!-- card-body .// -->
-                    </article>
-                </div>
             </div>
         </div>
     </div>

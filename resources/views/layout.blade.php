@@ -49,13 +49,13 @@
                 @auth
                     <ul class="navbar-nav"> 
                         <li class="nav-item dropdown"> 
-                            <a class=" dropdown-toggle ms-md-2 btn btn-outline-dark {{ request()->routeIS('home') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+                            <a class="dropdown-toggle ms-md-2 btn btn-outline-dark {{ request()->routeIS('home') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
                                 <i class="fa-solid fa-user me-1"></i><span>{{auth()->user()->name}}</span> 
                             </a> 
                             <ul class="dropdown-menu dropdown-menu-end"> 
                                 <li> 
-                                    <a class="dropdown-item" href="{{ route('clients') }}">
-                                        <i class="fa-solid fa-user-gear me-1"></i>Configuración
+                                    <a class="dropdown-item" href="{{ route('clients.show', auth()->user()->id) }}">
+                                        <i class="fa-solid fa-user-gear me-1"></i>Perfil
                                     </a> 
                                 </li> 
                                 <li> 

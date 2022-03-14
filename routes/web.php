@@ -19,7 +19,22 @@ Route::get('/', function () {
 */
 
 Route::get('/','App\Http\Controllers\ProductController@index')->name("home");
-Route::get('productos/{id}','App\Http\Controllers\ProductController@show')->name("products.show");
+//Route::get('productos/{id}','App\Http\Controllers\ProductController@show')->name("products.show");
+Route::resource('productos','App\Http\Controllers\ProductController')
+->parameters(['productos'=>'products'])
+->names("products");
+
+Route::resource('clientes','App\Http\Controllers\UserClientController')
+->parameters(['clientes'=>'clients'])
+->names("clients");
+
+Route::view('/contacto','contact')->name('contact');
+Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('messages.store');
+
+/*
+Route::get('/registro', function () {
+  return view('signin');
+})->name("signin");
 
 Route::get('/pedido', function () {
   return view('products.index');
@@ -29,18 +44,13 @@ Route::get('/pedidoCheckIn', function () {
   return view('products.store');
 })->name("products.store");
 
-Route::view('/contacto','contact')->name('contact');
-Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('messages.store');
-
-/*
-Route::get('/registro', function () {
-  return view('signin');
-})->name("signin");
-*/
-
-Route::get('/clientes', function () {
+ Route::get('/clientes', function () {
   return view('clients.index');
 })->name("clients");
+
+
+*/
+
 
 
 //Route::get('/contacto', 'ContactController')->name('contact');
