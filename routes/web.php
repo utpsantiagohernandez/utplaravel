@@ -26,7 +26,14 @@ Route::resource('productos','App\Http\Controllers\ProductController')
 
 Route::resource('clientes','App\Http\Controllers\UserClientController')
 ->parameters(['clientes'=>'clients'])
-->names("clients");
+->names("clients")
+->middleware("auth");
+
+
+Route::resource('direcciones','App\Http\Controllers\ClientDirectionController')
+->parameters(['direcciones'=>'directions'])
+->names("directions")
+->middleware("auth");
 
 Route::view('/contacto','contact')->name('contact');
 Route::post('contacto', 'App\Http\Controllers\MessageController@store')->name('messages.store');

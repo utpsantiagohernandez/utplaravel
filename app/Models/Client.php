@@ -14,4 +14,9 @@ class Client extends Model
     public function usuarios(){
         return $this->belongsTo(User::class, 'id');
     }
+
+    public function direcciones(){
+        return $this->hasMany(Direction::class, 'id_client');
+    }
+   
 }

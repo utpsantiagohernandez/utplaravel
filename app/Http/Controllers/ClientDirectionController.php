@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Client;
-use App\Http\Requests\SaveClientRequest;
+use App\Models\Direction;
+use App\Http\Requests\SaveDirectionRequest;
 
-class UserClientController extends Controller
+
+class ClientDirectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,11 +36,11 @@ class UserClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaveClientRequest $request)
+    public function store(SaveDirectionRequest $request)
     {
-        Client::create($request->validated());
+        Direction::create($request->validated());
         return redirect()
-        ->route('clients.show', auth()->user()->id)
+        ->route('directions.show', $client->id)
         ->with('saveOK', 'Se han guardado los cambios de forma correcta.');
     }
 
@@ -51,8 +52,8 @@ class UserClientController extends Controller
      */
     public function show($id)
     {
-        return view('clients.show',[
-            'user' => User::findOrFail($id)
+        return view('directions.show',[
+            'client' => Client::findOrFail($id)
         ]);
     }
 
@@ -62,11 +63,9 @@ class UserClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
-        return view('clients.show',[
-            'client' => $client
-        ]);
+        //
     }
 
     /**
@@ -76,14 +75,9 @@ class UserClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(SaveClientRequest $request, $id)
+    public function update(SaveDirectionRequest $request, $id)
     {
-
-        $client = Client::whereId($id)->firstOrFail();
-        $client->update($request->validated());
-        return redirect()
-        ->route('clients.show', auth()->user()->id) 
-        ->with('saveOK', 'Se han guardado los cambios de forma correcta.');
+        return $request->validated();
     }
 
     /**
